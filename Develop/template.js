@@ -1,3 +1,4 @@
+
 const generatePage = (contributor) => {
   return `
     <!DOCTYPE html> 
