@@ -1,13 +1,41 @@
-// TODO: Include packages needed for this application
+const fs = require('fs');
 
-// TODO: Create an array of questions for user input
-const questions = [];
+const pageDataArgs = process.argv.slice(2, process.argv.length);
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+const contributor = 'Kevin Jackson';
 
-// TODO: Create a function to initialize app
-function init() {}
+const generatePage = (contributor) => {
+    return `
+    <!DOCTYPE html> 
+    <html lang="en"> 
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>ReadMe Generator</title>
+    </head>
+  
+    <body>
+      <h1>ReadMe</h1>
+      <h2>Contribution By: ${contributor}</h2>
+    </body>
+    </html>
+    `;
+};
 
-// Function call to initialize app
-init();
+
+fs.writeFile('index.html', generatePage(contributor), err => {
+    if (err) throw err;
+
+    console.log('ReadMe complete! See index.html for output!');
+});
+
+// const questions = [];
+
+
+// function writeToFile(fileName, data) { }
+
+// function init() { }
+
+
+// init();
